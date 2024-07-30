@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Components/Button/Button";
 import { useUserStore } from "../store/user";
 import { Mood } from "../types/userData";
-import { Link, useNavigate } from "react-router-dom";
 
 const CreateSleep = () => {
 	const parseTime = useCallback((timeString: string) => {

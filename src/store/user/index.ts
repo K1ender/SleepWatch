@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import type { Check, UserData } from "../../types/userData";
 import { persist } from "zustand/middleware";
+import type { Check, UserData } from "../../types/userData";
 
 type Store = {
 	user: UserData;
@@ -9,7 +9,7 @@ type Store = {
 
 export const useUserStore = create<Store>()(
 	persist(
-		(set, get) => ({
+		(set) => ({
 			user: {
 				exp: 0,
 				level: 0,

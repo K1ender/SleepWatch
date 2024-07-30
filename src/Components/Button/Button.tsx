@@ -1,5 +1,6 @@
+import type React from "react";
 import { memo } from "react";
-import { compile, type Variants } from "../../misc/classVariants";
+import { type Variants, compile } from "../../misc/classVariants";
 
 const getClass = compile("text-center", {
 	variants: {

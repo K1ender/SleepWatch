@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
-import Button from "../Button/Button";
-import type { UserData } from "../../types/userData";
 import { Link } from "react-router-dom";
+import type { UserData } from "../../types/userData";
+import Button from "../Button/Button";
 
 const Sidebar = memo(
 	({
