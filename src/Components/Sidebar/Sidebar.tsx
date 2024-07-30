@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import type { UserData } from "../../types/userData";
 import Button from "../Button/Button";
 
+import menu from "../../assets/menu.svg";
+
 const Sidebar = memo(
 	({
 		setSelectedDate,
@@ -25,7 +27,7 @@ const Sidebar = memo(
 					}}
 					variants={{ style: "primary", type: "icon" }}
 				>
-					<img width={32} height={32} src="/menu.svg" alt="menu icon" />
+					<img width={32} height={32} src={menu} alt="menu icon" />
 				</Button>
 
 				<div

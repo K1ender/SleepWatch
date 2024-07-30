@@ -6,20 +6,25 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import CreateSleep from "./dashboard/CreateSleep.tsx";
 import Dashboard from "./dashboard/Dashboard.tsx";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+	[
+		{
+			path: "/",
+			element: <App />,
+		},
+		{
+			path: "/dashboard",
+			element: <Dashboard />,
+		},
+		{
+			path: "/dashboard/create",
+			element: <CreateSleep />,
+		},
+	],
 	{
-		path: "/",
-		element: <App />,
+		basename: import.meta.env.BASE_URL,
 	},
-	{
-		path: "/dashboard",
-		element: <Dashboard />,
-	},
-	{
-		path: "/dashboard/create",
-		element: <CreateSleep />,
-	},
-]);
+);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
