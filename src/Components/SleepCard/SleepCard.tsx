@@ -12,6 +12,9 @@ const SleepCard = memo(({ check }: { check: Check | undefined }) => {
 		);
 	}
 
+	const sleepDurationInMilliseconds = check.endSleep - check.startSleep;
+	const sleepDurationInHours = sleepDurationInMilliseconds / (1000 * 60 * 60);
+
 	return (
 		<div className="flex items-center flex-col w-full pt-10 text-center">
 			<img src={moonicon} alt="moon icon" />
@@ -40,8 +43,7 @@ const SleepCard = memo(({ check }: { check: Check | undefined }) => {
 			</p>
 
 			<p className="text-white mt-4">
-				You slept {new Date(check.endSleep - check.startSleep).getHours()} hours
-				👍
+				You slept {Math.round(sleepDurationInHours)} hours 👍
 			</p>
 		</div>
 	);
