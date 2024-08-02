@@ -24,7 +24,7 @@ const CreateSleep = () => {
 
 	const { addSleep, user } = useUserStore();
 
-	if (user.lastCheck + 864000000 >= Date.now()) {
+	if (user.lastCheck + 86400000 >= Date.now()) {
 		return (
 			<div className="text-white flex h-full w-full items-center justify-center text-center text-3xl flex-col gap-16">
 				<div>You already added check</div>

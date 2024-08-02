@@ -21,7 +21,13 @@ export const useUserStore = create<Store>()(
 			addSleep: (sleep: Check) => {
 				set((state) => {
 					state.user.checks.push(sleep);
-					state.user.lastCheck = Date.now();
+
+					const lastCheckDay = new Date(Date.now());
+					lastCheckDay.setHours(0);
+					lastCheckDay.setMinutes(0);
+					lastCheckDay.setSeconds(0);
+					lastCheckDay.setMilliseconds(0);
+					state.user.lastCheck = lastCheckDay.getTime();
 					return {
 						...state,
 					};
