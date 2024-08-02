@@ -5,6 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import CreateSleep from "./dashboard/CreateSleep.tsx";
 import Dashboard from "./dashboard/Dashboard.tsx";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter(
 	[
@@ -29,5 +30,6 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<RouterProvider router={router} />
+		<Toaster />
 	</React.StrictMode>,
 );
