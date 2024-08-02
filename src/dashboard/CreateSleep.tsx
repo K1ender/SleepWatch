@@ -1,20 +1,11 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../Components/Button/Button";
 import { useUserStore } from "../store/user";
 import { Mood } from "../types/userData";
+import { getStartSleep, parseTime } from "../misc/dates/formatDate";
 
 const CreateSleep = () => {
-	const parseTime = useCallback((timeString: string) => {
-		const [hours, minutes] = timeString.split(":").map(Number);
-		const date = new Date();
-		date.setHours(hours);
-		date.setMinutes(minutes);
-		date.setSeconds(0);
-		date.setMilliseconds(0);
-		return date;
-	}, []);
-
 	const [asleep, setAsleep] = useState("");
 	const [awake, setAwake] = useState("");
 
@@ -71,8 +62,7 @@ const CreateSleep = () => {
 			<Button
 				onClick={() => {
 					addSleep({
-						startSleep:
-							parseTime(asleep).getTime() - (isSameDate ? 0 : 86400000),
+						startSleep: getStartSleep(asleep, isSameDate),
 						endSleep: parseTime(awake).getTime(),
 						mood: Mood.asAlways,
 						id: user.checks.length + 1,

@@ -4,6 +4,7 @@ import type { UserData } from "../../types/userData";
 import Button from "../Button/Button";
 
 import menu from "../../assets/menu.svg";
+import { formatDateSidebar } from "../../misc/dates/formatDate";
 
 const Sidebar = memo(
 	({
@@ -42,7 +43,7 @@ const Sidebar = memo(
 									style: `${value.id === selectedDate ? "primary" : "secondary"}`,
 								}}
 							>
-								{new Date(value.endSleep).toLocaleDateString()}
+								{formatDateSidebar(value.endSleep)}
 							</Button>
 						);
 					})}
